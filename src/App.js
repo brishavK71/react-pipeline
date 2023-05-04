@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Hello this is how we use codepipeline for hosting react site 
         </a>
       </header>
     </div>
