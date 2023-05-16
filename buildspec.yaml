@@ -1,18 +1,22 @@
 version: 0.2
-
 phases:
-  install:
+  pre_build:
     commands:
+      #installs dependencies into the node_modules/ directory
       - npm install
   build:
     commands:
+      - echo Build started on `date`
+      - echo Compiling
       - npm run build
-
+  post_build:
+    commands:
+      - echo Build completed on `date`
+# Include only the files required for your application to run.
 artifacts:
   files:
-    - "**/*"
-  base-directory: 'build'
-
-cache:
-  paths:
-    - 'node_modules/**/*'
+    - public/**/*
+    - src/**/*
+    - package.json
+    - appspec.yml
+    - scripts/**/*
