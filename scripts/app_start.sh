@@ -1,12 +1,13 @@
 #!/bin/bash
-cd /home/ec2-user/server/src
+
+cd /home/ubuntu/server/src
 
 npm start
 
-pm2 start npm --name "covidapp" -- start
+sudo npm install pm2 -g
+pm2 start npm --name "reactapp" -- start
 
-pm2 startup
-
-pm2 save
+sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u ubuntu --hp /home/ubuntu
+sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 save
 
 pm2 restart all
